@@ -1,0 +1,17 @@
+OBJS	= crc.o
+SOURCE	= crc.c
+HEADER	= interface.h assist.h
+OUT	= crc
+CC	 = gcc
+FLAGS	 = -g -c -Wall
+LFLAGS	 = -lpthread
+
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
+
+crc.o: crc.c
+	$(CC) $(FLAGS) crc.c 
+
+
+clean:
+	rm -f $(OBJS) $(OUT)

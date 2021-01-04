@@ -1,0 +1,17 @@
+OBJS	= crsd.o
+SOURCE	= crsd.c
+HEADER	= interface.h chat_room_thread.h server_common.h socket_assist.h command_assist.h reply_assist.h room_assist.h
+OUT	= crsd
+CC	 = gcc
+FLAGS	 = -g -c -Wall
+LFLAGS	 = -lpthread
+
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
+
+crsd.o: crsd.c
+	$(CC) $(FLAGS) crsd.c 
+
+
+clean:
+	rm -f $(OBJS) $(OUT)
